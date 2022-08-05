@@ -4,6 +4,7 @@
 
 * what changes happend?
 * Code comments
+* latest changes
 
 
 ### what changes happend?
@@ -35,3 +36,11 @@ basically everything happend in there
 all newly added code is commented to make it easy to understand.
 Besides, I tried to use as less functions as possible but as many as needed to achieve the goals in an understandable way.
 
+### latest changes
+
+app.js:
+two further functions
+1. scroller
+       the scroller function enables the click on the list item to redirect to the correct section
+2. clickNavBar
+       clicknavbar recognises a click onto the navigation menu
