@@ -48,8 +48,8 @@ function populateNavBar() {
         NavbarListItem = document.createElement('li');
         // now we know the name + the id to href it wihtin in the navbar, besides a new id per list item for activating a background color
         // Let's add some content to the above created list item
-        NavbarListItem.innerHTML = `<a class='menu__link' href='#${NavbarListItemLink}' id='${NavbarListItemLink}_li'> ${NavbarListItemName} </a>`;
-
+        NavbarListItem.innerHTML = `<a class='menu__link'  id='${NavbarListItemLink}_li'> ${NavbarListItemName} </a>`;
+        //---------- removing href from list item to use scrollIntoView via JS -------------  //href='#${NavbarListItemLink}'
         // after adding content we need to add the list item to the unordered list
         NavMenu.appendChild(NavbarListItem);
 
@@ -74,6 +74,32 @@ function activateSection() {
             section.classList.remove('your-active-class');
             document.getElementById(sectionId).classList.remove('menu__active');
         }
+    }
+
+}
+
+
+// the scroller function enables the click on the list item to redirect to the correct section
+function scroller() {
+    // start with generating a varibale containing the id of the list item and removing the "_li" to get the correspopnding section-id
+    let secId = this.getAttribute('id').replace('_li','');
+    // to link to the section, we create an element-variable
+    let element = document.getElementById(secId);
+    //console.log(element);
+    // and use finally the scrollintoview function to scroll to the section.
+    element.scrollIntoView(true); 
+}
+
+// clicknavbar recognises a click onto the navigation menu
+function clickNavBar () {
+    // it creates a list of all a item
+    let a_arr = Array.from(document.querySelectorAll('a'));
+    for(a of a_arr) {
+        //loops through all of them and creates a variable that is passed to another event listener
+        let a_id = a.getAttribute('id');
+        //console.log(a_id);
+        // the listener will checks which list item is clicked and activates the scroller function
+        document.getElementById(a_id).addEventListener('click', scroller);
     }
 
 }
@@ -108,3 +134,7 @@ populateNavBar();
 
 // Set sections as active + set listitems of navbar to active
 document.addEventListener('scroll', activateSection);
+
+// a further event listener, this one on the nav_bar to check which list item is clicked. 
+document.getElementById('navbar__list').addEventListener('click', clickNavBar);
+// → to test, I removed all href from the list items.
