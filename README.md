@@ -44,3 +44,5 @@ two further functions
        the scroller function enables the click on the list item to redirect to the correct section
 2. clickNavBar
        clicknavbar recognises a click onto the navigation menu
+    
+removed href from list items, to only newly added use ScrollIntoView function
