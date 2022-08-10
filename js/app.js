@@ -87,7 +87,7 @@ function scroller() {
     let element = document.getElementById(secId);
     //console.log(element);
     // and use finally the scrollintoview function to scroll to the section.
-    element.scrollIntoView(true); 
+    element.scrollIntoView(true {behavior: "smooth"}); 
 }
 
 // clicknavbar recognises a click onto the navigation menu
