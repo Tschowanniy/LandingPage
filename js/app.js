@@ -48,8 +48,7 @@ function populateNavBar() {
         NavbarListItem = document.createElement('li');
         // now we know the name + the id to href it wihtin in the navbar, besides a new id per list item for activating a background color
         // Let's add some content to the above created list item
-        NavbarListItem.innerHTML = `<a class='menu__link'  id='${NavbarListItemLink}_li'> ${NavbarListItemName} </a>`;
-        //---------- removing href from list item to use scrollIntoView via JS -------------  //href='#${NavbarListItemLink}'
+        NavbarListItem.innerHTML = `<a class='menu__link' href='#${NavbarListItemLink}' id='${NavbarListItemLink}_li'> ${NavbarListItemName} </a>`;
         // after adding content we need to add the list item to the unordered list
         NavMenu.appendChild(NavbarListItem);
 
